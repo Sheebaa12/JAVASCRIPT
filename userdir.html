@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Directory</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        text-align: center;
+    }
+    h1 {
+        text-align: center;
+    }
+    .controls {
+        margin-bottom: 20px;
+    }
+    input, button {
+        padding: 8px;
+        margin: 5px;
+    }
+    .user-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .card {
+        border: 1px solid black;
+        padding: 10px;
+        width: 220px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+    <h1>User Directory</h1>
+    <div class="controls">
+        <input type="text" id="search" placeholder="Search user by name">
+        <button onclick="AZ()"> A-Z</button>
+        <button onclick="ZA()">Z-A</button>
+    </div>
+    <div class="user-container" id="userContainer"></div>
+    <script>
+        let users = [
+            {
+                name: "Christian",
+                email: "chris@go.com",
+                phone: "7418529639",
+                company: "hooks group"
+            },
+            {
+                name: "Ranveer",
+                email: "raneee@go.com",
+                phone: "7894561233",
+                company: "Diva Group"
+            },
+            {
+                name: "Archana",
+                email: "achuu@go.com",
+                phone: "753869421",
+                company: "Aasique"
+            },
+        ];
+        function displayUsers(userList) {
+            let container = document.getElementById("userContainer");
+            container.innerHTML = "";
+            userList.forEach(function(user) {
+                container.innerHTML += `
+                    <div class="card">
+                        <h3>${user.name}</h3>
+                        <p><b>Email:</b> ${user.email}</p>
+                        <p><b>Phone:</b> ${user.phone}</p>
+                        <p><b>Company:</b> ${user.company}</p>
+                    </div>
+                `;
+            });
+        }
+        function AZ() {
+            users.sort((a, b) => a.name.localeCompare(b.name));
+            displayUsers(users);
+        }
+        function ZA() {
+            users.sort((a, b) => b.name.localeCompare(a.name));
+            displayUsers(users);
+        }
+        document.getElementById("search").addEventListener("keyup", function() {
+            let searchValue = this.value.toLowerCase();
+            let filteredUsers = users.filter(function(user) {
+                return user.name.toLowerCase().includes(searchValue);
+            });
+            displayUsers(filteredUsers);
+        });
+        displayUsers(users);
+    </script>
+</body>
+</html>
