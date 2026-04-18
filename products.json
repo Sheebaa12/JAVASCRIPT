@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": "$800",
+    "category": "Electronics"
+  },
+  {
+    "id": 2,
+    "name": "Headphones",
+    "price": "$120",
+    "category": "Accessories"
+  },
+  {
+    "id": 3,
+    "name": "Smartphone",
+    "price": "$600",
+    "category": "Electronics"
+  },
+  {
+    "id": 4,
+    "name": "Shoes",
+    "price": "$90",
+    "category": "Fashion"
+  },
+  {
+    "id": 5,
+    "name": "Watch",
+    "price": "$150",
+    "category": "Accessories"
+  }
+]
